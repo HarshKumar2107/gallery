@@ -4,7 +4,7 @@ class Album < ApplicationRecord
   
   after_save do
     if self.published_previously_changed?
-       UserMailer.publish_msg(user.email).deliver_now if published?
+       UserMailer.publish_msg(user.email).deliver_later if published?
     end
   end
 
