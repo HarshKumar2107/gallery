@@ -1,0 +1,20 @@
+<% if user_signed_in?%>
+  <div class="row bg-secondary text-light">
+    <div class="col-lg-12">
+      <h3 >User: <%= current_user.f_name%> <%= current_user.l_name%></h3>
+    </div>
+  </div>
+<%end%>
+<div class="text-center">
+  <h1 class="text-center mt-4">My Albums</h1><hr>
+  <div id="albums" class=" mt-4">
+    <u><h2>Published Albums:</h2></u>
+    <% @published_albums.each do |i|%>
+      <%= render i %>
+    <% end %>
+    <u><h2 class="mt-4">Unpublished Albums:</h2></u>
+    <% @unpublished_albums.each do |album|%>
+      <%= render album %>
+    <% end %>  
+  </div>
+</div>

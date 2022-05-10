@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+  <div class="col-lg-5 mt-4">
+    <h1 class="mb-5 text-center">Log In</h1>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+      <div class="field">
+        <%= f.label :email, class: "form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter Your Email", class: "form-control" %>
+      </div>
+
+      <div class="field mt-3">
+        <%= f.label :password, class: "from-label" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Enter Your Password", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field mt-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions mt-3 text-center">
+        <%= f.submit "Log in", class: "btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+    <div class="text-center mt-2">
+      <%= render "devise/shared/links" %>
+    </div>
+
+  </div>
+</div>

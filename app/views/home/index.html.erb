@@ -1,0 +1,37 @@
+<% if user_signed_in?%>
+  <div class="row bg-secondary text-light">
+    <div class="col-lg-12">
+      <h3 >User: <%= current_user.f_name%> <%= current_user.l_name%></h3>
+    </div>
+  </div>
+<%end%>
+
+<div class="text-center mt-4">
+  <h1 class="text-center">Albums</h1><hr>
+  <%= search_form_for @q || @q1, url: :root do |f| %>
+    <div class="row g-2 justify-content-center">
+      <div class="col-lg-5">
+        <div class="d-flex">
+          <%= f.search_field :tags_album_tags_cont, placeholder: "Search By Tags", class: "form-control d-inline-block"  %>
+          <%= f.submit "Search", class: "ms-2 btn btn-outline-secondary " %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+  <div id="albums" class=" mt-2">
+    <%if user_signed_in?%>
+      <% @published_albums.each do |album|%>
+        <%=render album%> 
+      <% end %>
+
+  	  <% @unpublished_albums.each do |album|%>
+        <%= render album%>
+      <% end %>
+    <%else%>
+      <% @published_albums.each do |album|%>
+        <%= render album %>  
+      <% end %>
+    <%end%>
+  </div>
+</div>
