@@ -1,56 +1,56 @@
-<div class="card text-center pt-1 pb-2 m-2 bg-dark text-light" id="<%= dom_id album %>" style="display:inline-block; width: 18rem; border-radius: 2rem;">
+<div class="card text-center pt-1 pb-2 m-2 bg-dark text-light" style="display:inline-block; width: 18rem; border-radius: 2rem;">
   <% if album.cover.attached?%>
-  <div>
-    <%= link_to image_tag(album.cover, :size => "280x180", :crop => :fill, class: "rounded-pill"), album %>
-  </div>
+    <div>
+      <%= link_to image_tag(album.cover, :size => "280x180", :crop => :fill, class: "rounded-pill"), album %>
+    </div>
 
-  <p class="mt-3">
-    <strong>Title:</strong>
-    <%= album.title %>
-  </p>
-  
-  <p>
-    <strong>Description:</strong>
-    <%= album.description %>
-  </p>
-  
-  <p>
-    <strong>Tags:</strong>
-    <%= album.tagged %>
-  </p> 
-  
-  <p>
-    <%= link_to "Show this album", album, style: "text-decoration: none;", class: "btn btn-outline-light rounded-pill" %>
-  </p>
-  
-  <p>
-    <%=time_ago_in_words(album.created_at)%> ago
-  </p>
+    <p class="mt-3">
+      <strong>Title:</strong>
+      <%= album.title %>
+    </p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= album.description %>
+    </p>
+    
+    <p>
+      <strong>Tags:</strong>
+      <%= album.tagged %>
+    </p> 
+    
+    <p>
+      <%= link_to "Show this album", album, style: "text-decoration: none;", class: "btn btn-outline-light rounded-pill" %>
+    </p>
+    
+    <p>
+      <%=time_ago_in_words(album.created_at)%> ago
+    </p>
   
   <% else %>
   
-  <p>
-    <strong>Title:</strong>
-    <%= album.title %>
-  </p>
-  
-  <p>
-    <strong>Description:</strong>
-    <%= album.description %>
-  </p>
-  
-  <p>
-    <strong>Tags:</strong>
-    <%= album.tagged %>
-  </p> 
-  
-  <p>
-    <%= link_to "Show this album", album, style: "text-decoration: none;", class: "btn btn-outline-success" %>
-  </p>
-  
-  <p>
-    <%=time_ago_in_words(album.created_at)%> ago
-  </p>
+    <p>
+      <strong>Title:</strong>
+      <%= album.title %>
+    </p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= album.description %>
+    </p>
+    
+    <p>
+      <strong>Tags:</strong>
+      <%= album.tagged %>
+    </p> 
+    
+    <p>
+      <%= link_to "Show this album", album, style: "text-decoration: none;", class: "btn btn-outline-success" %>
+    </p>
+    
+    <p>
+      <%=time_ago_in_words(album.created_at)%> ago
+    </p>
   
   <%end%>
 </div>
